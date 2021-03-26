@@ -6,7 +6,7 @@ export default class IndexRoute extends Route {
 
   beforeModel(transition) {
     // this.transitionTo("/?pageOffset=1&pageSize=5");
-    // transitionTo({ queryParams: { pageOffset: 1, pageSize: 5 } });
+    // this.transitionTo({ queryParams: { pageOffset: 1, pageSize: 5 } });
     //this.session.requireAuthentication(transition, "login");
     return this.session.loadUser();
   }
