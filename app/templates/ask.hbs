@@ -1,0 +1,38 @@
+<div class="d-flex h-100">
+  <div class="m-auto question-form">
+    <h3>
+      Expert Advice
+    </h3>
+    <p>
+      Get answers to difficult questions
+    </p>
+    <h2>
+      Ask a question
+    </h2>
+    <div class="question-form question-form__field">
+      <label>
+        Title
+      </label>
+      <Input @type="text" @value={{this.title}}></Input>
+    </div>
+    <div class="question-form question-form__field">
+      <label>
+        Description
+      </label>
+      <Textarea @value={{this.description}} rows="6" cols="50"></Textarea>
+      <div class="question-form question-form__field">
+        <label>
+          Tags (separated by comma)
+        </label>
+        <Input @type="text" @value={{this.tags}}></Input>
+      </div>
+    </div>
+    <button
+      class="btn-question btn-blue"
+      type="button"
+      {{on "click" this.saveQuestion}}
+    >
+      Post question
+    </button>
+  </div>
+</div>

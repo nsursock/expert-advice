@@ -60,5 +60,8 @@
   },
   "engines": {
     "node": "12.x"
+  },
+  "dependencies": {
+    "faker": "^5.4.0"
   }
 }

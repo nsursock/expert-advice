@@ -1,10 +1,75 @@
 @import "ember-bootstrap/bootstrap";
 @import "main";
 
-body, .h-screen {
+body,
+.h-screen {
   height: 100vh;
 }
 
 .login-form__error {
   color: #dc3545;
+}
+
+.question-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.question-form__field {
+  margin-top: 10px;
+}
+
+.btn-question {
+  text-align: center;
+  width: 200px;
+  border: none;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.btn-blue {
+  color: white;
+  background-color: blue;
+}
+
+.question-list {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.question-list__col1 {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 80px;
+}
+
+.question-list__col2 {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 40px;
+}
+
+.question-list__controls {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  height: 30px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.question-options {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+button {
+  margin-left: 10px;
+  margin-right: 10px;
 }

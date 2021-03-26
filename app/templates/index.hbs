@@ -1,0 +1,66 @@
+<div class="d-flex h-100">
+  <div class="m-auto">
+    <h3>
+      Expert Advice
+    </h3>
+    <p>
+      Get answers to difficult questions
+    </p>
+    <div class="question-list__controls">
+      <Input @type="text" @value={{this.search}}></Input>
+      {{#if this.session.isLoggedIn}}
+        <LinkTo class="btn-question btn-blue" @route="ask">
+          Ask a question
+        </LinkTo>
+      {{/if}}
+    </div>
+    <div>
+      <ul>
+        <div class="question-list">
+          <span class="question-list__col2">
+            Views
+          </span>
+          <span>
+            Questions
+          </span>
+        </div>
+        {{#each this.arrangedQuestions as |question|}}
+          <li class="question-list">
+            <div class="question-list__col2">
+              {{question.views}}
+            </div>
+            <LinkTo @route="questions" @model={{question.id}}>
+              {{question.title}}
+              <br />
+              <span>
+                {{question.publishedAt}}
+              </span>
+            </LinkTo>
+            {{#if (eq question.authorId this.session.user.email)}}
+            <div class="question-options question-list__col1">
+              <button type="button" name="button" class="btn-question">
+                Edit
+              </button>
+              <button type="button" name="button" class="btn-question">
+                Delete
+              </button>
+            </div>
+            {{/if}}
+          </li>
+          <ul>
+            {{#each @model.tags as |tag|}}
+              <li>
+                {{tag.name}}
+              </li>
+            {{/each}}
+          </ul>
+        {{/each}}
+      </ul>
+    </div>
+    {{#each this.pagesArray as |page|}}
+      <LinkTo @route="index" @query={{hash pageOffset=page pageSize=5}}>
+        {{page}}
+      </LinkTo>
+    {{/each}}
+  </div>
+</div>

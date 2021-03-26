@@ -1,0 +1,31 @@
+<div class="d-flex h-100">
+  <div class="m-auto">
+    <h1>
+      {{@model.title}}
+    </h1>
+    <p>
+      <strong>
+        Published:
+        {{@model.publishedAt}}
+      </strong>
+    </p>
+    <code>
+      {{@model.description}}
+    </code>
+    <h4>
+      Answers
+    </h4>
+    <ul>
+      {{#each @model.answers as |answer|}}
+        <li>
+          {{answer.text}}
+          <br />
+          <small>
+            answered on
+            {{answer.publishedAt}}
+          </small>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
