@@ -31,8 +31,8 @@ body,
 }
 
 .btn-blue {
-  color: white;
-  background-color: blue;
+  color: lightsteelblue;
+  background-color: royalblue;
 }
 
 .question-list {
@@ -69,7 +69,29 @@ body,
   flex-direction: row;
 }
 
+.question-details {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+}
+
+.question-tags {
+  flex-wrap: wrap;
+  display: flex;
+  margin-top: 5px;
+}
+
+.question-tags__element {
+  margin-right: 10px;
+  background-color: royalblue;
+  color: lightsteelblue;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 15px;
+  border: none;
+}
+
 button {
-  margin-left: 10px;
+  // margin-left: 10px;
   margin-right: 10px;
 }

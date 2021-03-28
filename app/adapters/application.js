@@ -11,6 +11,11 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
   namespace = ENV.apiNamespace;
   host = ENV.serverURL;
 
+  // handleResponse() {
+  //   debugger;
+  //   return this.super(...arguments);
+  // }
+
   pathForType(type) {
     let underscored = underscore(type);
     return pluralize(underscored);

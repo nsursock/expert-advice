@@ -5,7 +5,11 @@ export default class QuestionModel extends Model {
   @attr("string") description;
   @attr("date") publishedAt;
   @attr("number") views;
-  @hasMany("tag") tags;
-  @hasMany("answer") answers;
+  @hasMany("tag", { async: false }) tags;
+  @hasMany("answer", { async: false }) answers;
   @attr("string") authorId;
+
+  get formattedPublishedAt() {
+    return this.publishedAt.toLocaleString("en-US", { timeZone: "UTC" });
+  }
 }

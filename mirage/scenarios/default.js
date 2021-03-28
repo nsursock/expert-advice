@@ -1,4 +1,4 @@
 export default function (server) {
   server.create("user", { email: "test@test.com" });
-  server.createList("question", 100);
+  server.createList("question", Math.round(Math.random() * 100));
 }

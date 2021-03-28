@@ -29,23 +29,41 @@
             <div class="question-list__col2">
               {{question.views}}
             </div>
-            <LinkTo @route="questions" @model={{question.id}}>
-              {{question.title}}
-              <br />
-              <span>
-                {{question.publishedAt}}
-              </span>
-            </LinkTo>
-            {{#if (eq question.authorId this.session.user.email)}}
-            <div class="question-options question-list__col1">
-              <button type="button" name="button" class="btn-question">
+            <div class="question-details">
+              <LinkTo @route="questions" @model={{question.id}}>
+                {{question.title}}
+                <br />
+                <span>
+                  {{question.formattedPublishedAt}}
+                </span>
+              </LinkTo>
+              {{#if (eq question.authorId this.session.user.email)}}
+              <div class="question-options question-list__col1">
+                <LinkTo
+                class="btn-question"
+                @route="edit"
+                @model={{question.id}}
+                >
                 Edit
-              </button>
-              <button type="button" name="button" class="btn-question">
-                Delete
-              </button>
+              </LinkTo>
+              <button
+              type="button"
+              name="button"
+              class="btn-question"
+              {{on "click" (fn this.delete question)}}
+              >
+              Delete
+            </button>
+          </div>
+          {{/if}}
+          <div class="question-tags">
+            {{#each question.tags as |tag|}}
+            <button class="question-tags__element">
+              {{tag.name}}
+            </button>
+            {{/each}}
+          </div>
             </div>
-            {{/if}}
           </li>
           <ul>
             {{#each @model.tags as |tag|}}

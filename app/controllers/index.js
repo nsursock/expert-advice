@@ -1,6 +1,5 @@
 import Controller from "@ember/controller";
 import { inject as service } from "@ember/service";
-import { action } from "@ember/object";
 import { tracked } from "@glimmer/tracking";
 
 export default class IndexController extends Controller {
@@ -11,6 +10,10 @@ export default class IndexController extends Controller {
   @tracked search;
   @service session;
 
+  delete(question) {
+    question.destroyRecord();
+  }
+
   get offset() {
     return parseInt(this.pageOffset) - 1;
   }
@@ -20,8 +23,6 @@ export default class IndexController extends Controller {
   }
 
   get questions() {
-    let offset = this.offset;
-    let size = this.size;
     let questions = this.model
       .filter((question) =>
         this.search !== undefined ? question.title.includes(this.search) : true

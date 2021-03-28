@@ -10,8 +10,9 @@ Router.map(function () {
   this.route("login");
   this.route("signup");
   this.route("index", { path: "" }, function () {});
-  this.route("ask", { path: "/ask" });
+  this.route("ask");
   this.route("questions", { path: "/questions/:question_id" });
+  this.route("edit", { path: "/edit/:question_id" });
 });
 
 export default Router;

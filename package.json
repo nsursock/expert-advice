@@ -59,7 +59,7 @@
     "edition": "octane"
   },
   "engines": {
-    "node": "12.x"
+    "node": "10.* || >= 12"
   },
   "dependencies": {
     "faker": "^5.4.0"

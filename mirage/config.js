@@ -42,6 +42,44 @@ export default function () {
   this.get("/questions/:id");
   this.post("/questions");
 
+  // this.post("/questions", (schema, request) => {
+  //   var params = JSON.parse(request.requestBody);
+  //   const { title, description } = params.data.attributes;
+  //   if (title === "" || description === "")
+  //     return new Response(
+  //       422,
+  //       {},
+  //       {
+  //         errors: [
+  //           {
+  //             status: 422,
+  //             title: "title or description invalid",
+  //             description: "title and description cannot be blank",
+  //           },
+  //         ],
+  //       }
+  //     );
+  //   return new Response(
+  //     200,
+  //     {},
+  //     {
+  //       data: {
+  //         attributes: {
+  //           "author-id": params["author-id"],
+  //           description: description,
+  //           "published-at": params["published-at"],
+  //           title: title,
+  //           views: 0,
+  //         },
+  //         type: "questions",
+  //       },
+  //     }
+  //   );
+  // });
+
+  this.patch("/questions/:id");
+  this.delete("/questions/:id");
+
   // this.get("/questions", (schema, request) => {
   //   // const {
   //   //   queryParams: { pageOffset, pageSize },
@@ -49,18 +87,6 @@ export default function () {
   //
   //   const questions = schema.db.questions;
   //   console.log(questions);
-  //
-  //   // if (parseInt(pageSize)) {
-  //   //   const start = parseInt(pageSize) * parseInt(pageOffset);
-  //   //   const end = start + parseInt(pageSize);
-  //   //   const page = questions.slice(start, end);
-  //   //
-  //   //   console.log(page);
-  //   //
-  //   //   return {
-  //   //     data: page,
-  //   //   };
-  //   // }
   //   return { data: questions };
   // });
 }
