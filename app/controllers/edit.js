@@ -21,6 +21,14 @@ export default class QuestionController extends Controller {
   update(question) {
     question.title = this.title;
     question.description = this.description;
+
+    let tags = this.tags.split(",");
+    tags.forEach((item) => {
+      item = this.store.createRecord("tag", { name: item });
+      item.question = question;
+      item.save();
+    });
+
     question.save();
   }
 }
