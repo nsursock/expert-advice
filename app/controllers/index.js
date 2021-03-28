@@ -3,7 +3,7 @@ import { inject as service } from "@ember/service";
 import { tracked } from "@glimmer/tracking";
 
 export default class IndexController extends Controller {
-  queryParams = ["pageOffset", "pageSize"];
+  queryParams = ["pageOffset", "pageSize", "tag"];
   @tracked pageOffset = null;
   @tracked pageSize = null;
   @tracked model;
@@ -26,6 +26,15 @@ export default class IndexController extends Controller {
     let questions = this.model
       .filter((question) =>
         this.search !== undefined ? question.title.includes(this.search) : true
+      )
+      .filter((question) =>
+        this.tag !== undefined
+          ? question.tags
+              .map((obj) => {
+                return obj.name;
+              })
+              .includes(this.tag)
+          : true
       )
       .sortBy("publishedAt")
       .reverse();

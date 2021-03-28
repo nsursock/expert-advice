@@ -58,9 +58,9 @@
           {{/if}}
           <div class="question-tags">
             {{#each question.tags as |tag|}}
-            <button class="question-tags__element">
+            <LinkTo class="question-tags__element" @route="index" @query={{hash pageOffset=1 pageSize=5 tag=tag.name}}>
               {{tag.name}}
-            </button>
+            </LinkTo>
             {{/each}}
           </div>
             </div>
