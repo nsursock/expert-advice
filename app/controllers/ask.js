@@ -9,6 +9,10 @@ export default class QuestionController extends Controller {
   @tracked tags = "";
   @service session;
 
+  get disableSubmit() {
+    return !(this.title !== "" && this.description !== "");
+  }
+
   @action
   async validateTitle() {
     if (this.title.length === 0) alert("Title can't be empty");

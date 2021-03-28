@@ -30,6 +30,7 @@
     <button
       class="btn-question btn-blue"
       type="button"
+      disabled={{this.disableSubmit}}
       {{on "click" this.saveQuestion}}
     >
       Post question
