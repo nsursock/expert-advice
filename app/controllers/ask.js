@@ -24,12 +24,19 @@ export default class QuestionController extends Controller {
     const question = this.store.createRecord("question", {
       title: this.title,
       description: this.description,
-      // tags: this.tags,
       publishedAt: new Date(),
       authorId: this.session.user.email,
       question: this.model,
     });
+
+    let tags = this.tags.split(",");
+    tags.forEach((item) => {
+      item = this.store.createRecord("tag", { name: item });
+      item.question = question;
+      item.save();
+    });
     question.save();
+
     this.title = "";
     this.description = "";
     this.tags = "";

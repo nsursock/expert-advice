@@ -41,6 +41,12 @@ body,
   margin-bottom: 10px;
 }
 
+.question-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .question-list__col1 {
   margin-left: 10px;
   margin-right: 10px;

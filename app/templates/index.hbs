@@ -30,32 +30,34 @@
               {{question.views}}
             </div>
             <div class="question-details">
-              <LinkTo @route="questions" @model={{question.id}}>
-                {{question.title}}
-                <br />
-                <span>
-                  {{question.formattedPublishedAt}}
-                </span>
-              </LinkTo>
-              {{#if (eq question.authorId this.session.user.email)}}
-              <div class="question-options question-list__col1">
-                <LinkTo
-                class="btn-question"
-                @route="edit"
-                @model={{question.id}}
-                >
-                Edit
-              </LinkTo>
-              <button
-              type="button"
-              name="button"
-              class="btn-question"
-              {{on "click" (fn this.delete question)}}
-              >
-              Delete
-            </button>
-          </div>
-          {{/if}}
+              <div class="question-link">
+                <LinkTo @route="questions" @model={{question.id}}>
+                  {{question.title}}
+                  <br />
+                  <span>
+                    {{question.formattedPublishedAt}}
+                  </span>
+                </LinkTo>
+                {{#if (eq question.authorId this.session.user.email)}}
+                <div class="question-options question-list__col1">
+                  <LinkTo
+                  class="btn-question"
+                  @route="edit"
+                  @model={{question.id}}
+                  >
+                  Edit
+                  </LinkTo>
+                  <button
+                  type="button"
+                  name="button"
+                  class="btn-question"
+                  {{on "click" (fn this.delete question)}}
+                  >
+                  Delete
+                  </button>
+                </div>
+                {{/if}}
+              </div>
           <div class="question-tags">
             {{#each question.tags as |tag|}}
             <LinkTo class="question-tags__element" @route="index" @query={{hash pageOffset=1 pageSize=5 tag=tag.name}}>

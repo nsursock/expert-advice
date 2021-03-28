@@ -41,6 +41,7 @@ export default function () {
   this.get("/questions");
   this.get("/questions/:id");
   this.post("/questions");
+  this.post("/tags");
 
   // this.post("/questions", (schema, request) => {
   //   var params = JSON.parse(request.requestBody);
