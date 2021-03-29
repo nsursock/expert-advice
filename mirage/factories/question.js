@@ -24,6 +24,6 @@ export default Factory.extend({
 
   afterCreate(question, server) {
     server.createList("tag", Math.floor(Math.random() * 5), { question });
-    server.createList("answer", Math.floor(Math.random() * 10), { question });
+    server.createList("answer", Math.floor(Math.random() * 15), { question });
   },
 });

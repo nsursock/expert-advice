@@ -5,8 +5,8 @@ export default class QuestionModel extends Model {
   @attr("string") description;
   @attr("date") publishedAt;
   @attr("number") views;
-  @hasMany("tag", { async: false }) tags;
-  @hasMany("answer", { async: false }) answers;
+  @hasMany("tag") tags;
+  @hasMany("answer") answers; //, { async: false }
   @attr("string") authorId;
 
   get formattedPublishedAt() {

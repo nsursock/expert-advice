@@ -42,6 +42,8 @@ export default function () {
   this.get("/questions/:id");
   this.post("/questions");
   this.post("/tags");
+  this.patch("/questions/:id");
+  this.delete("/questions/:id");
 
   // this.post("/questions", (schema, request) => {
   //   var params = JSON.parse(request.requestBody);
@@ -77,9 +79,6 @@ export default function () {
   //     }
   //   );
   // });
-
-  this.patch("/questions/:id");
-  this.delete("/questions/:id");
 
   // this.get("/questions", (schema, request) => {
   //   // const {
