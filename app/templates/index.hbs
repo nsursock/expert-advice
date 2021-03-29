@@ -39,41 +39,38 @@
                   </span>
                 </LinkTo>
                 {{#if (eq question.authorId this.session.user.email)}}
-                <div class="question-options question-list__col1">
-                  <LinkTo
-                  class="btn-question"
-                  @route="edit"
-                  @model={{question.id}}
-                  >
-                  Edit
-                  </LinkTo>
-                  <button
-                  type="button"
-                  name="button"
-                  class="btn-question"
-                  {{on "click" (fn this.delete question)}}
-                  >
-                  Delete
-                  </button>
-                </div>
+                  <div class="question-options question-list__col1">
+                    <LinkTo
+                      class="btn-question"
+                      @route="edit"
+                      @model={{question.id}}
+                    >
+                      Edit
+                    </LinkTo>
+                    <button
+                      type="button"
+                      name="button"
+                      class="btn-question"
+                      {{on "click" (fn this.delete question)}}
+                    >
+                      Delete
+                    </button>
+                  </div>
                 {{/if}}
               </div>
-          <div class="question-tags">
-            {{#each question.tags as |tag|}}
-            <LinkTo class="question-tags__element" @route="index" @query={{hash pageOffset=1 pageSize=5 tag=tag.name}}>
-              {{tag.name}}
-            </LinkTo>
-            {{/each}}
-          </div>
+              <div class="question-tags">
+                {{#each question.tags as |tag|}}
+                  <LinkTo
+                    class="question-tags__element"
+                    @route="index"
+                    @query={{hash pageOffset=1 pageSize=5 tag=tag.name}}
+                  >
+                    {{tag.name}}
+                  </LinkTo>
+                {{/each}}
+              </div>
             </div>
           </li>
-          <ul>
-            {{#each @model.tags as |tag|}}
-              <li>
-                {{tag.name}}
-              </li>
-            {{/each}}
-          </ul>
         {{/each}}
       </ul>
     </div>

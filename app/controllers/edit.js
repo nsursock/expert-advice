@@ -18,6 +18,16 @@ export default class QuestionController extends Controller {
   }
 
   @action
+  fill(question) {
+    this.title = question.title;
+    this.description = question.description;
+    question.tags.forEach((item, index) => {
+      this.tags += item.name;
+      if (index !== question.tags.length - 1) this.tags += ",";
+    });
+  }
+
+  @action
   update(question) {
     question.title = this.title;
     question.description = this.description;

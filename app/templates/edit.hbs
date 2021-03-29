@@ -21,12 +21,21 @@
         <Input @type="text" @value={{this.tags}}></Input>
       </div>
     </div>
-    <button
-      class="btn-question btn-blue"
-      type="button"
-      {{on "click" (fn this.update @model)}}
-    >
-      Save question
-    </button>
+    <div class="buttons-edit">
+      <button
+        class="btn-question btn-blue"
+        type="button"
+        {{on "click" (fn this.update @model)}}
+      >
+        Save question
+      </button>
+      <button
+        class="btn-question btn-blue"
+        type="button"
+        {{on "click" (fn this.fill @model)}}
+      >
+        Fill Question
+      </button>
+    </div>
   </div>
 </div>
