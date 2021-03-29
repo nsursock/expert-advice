@@ -40,5 +40,9 @@ export default class QuestionController extends Controller {
     });
 
     question.save();
+
+    this.title = "";
+    this.description = "";
+    this.tags = "";
   }
 }
